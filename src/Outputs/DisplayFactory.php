@@ -10,7 +10,7 @@ class DisplayFactory
 {
     public static function getInstance($format = 'text')
     {
-        if ($format == 'text') {
+        /*if ($format == 'text') {
             return new TextFormat();
         } elseif ($format == 'html') {
             return new HTMLFormat();
@@ -19,6 +19,17 @@ class DisplayFactory
         }
         
         // else
-        return null;
+        return null;*/
+
+        switch ($format) {
+            case 'text':
+                return new TextFormat();
+            case 'html':
+                return new HTMLFormat();
+            case 'pdf':
+                return new PDFFormat();
+            default:
+                return null;
+        }
     }
 }
